@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  a(href="/posts") My posts
+  a(href="/post/new") New post
+  form.search(method="post" action="/posts/search")
+    input(placeholder="Search posts" name="query")
+  a(href="/logout") Logout
+  h1 #{title}
+  span.date #{date}
+  if (postId)
+    a.edit(href="/post/edit/" + postId) edit
+  else
+    div.author by
+      a(href="/posts/" + author) #{author}
+  p.text #{text}

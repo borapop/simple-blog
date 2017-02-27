@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  a(href="/posts") My posts
+  a(href="/post/new") New post
+  form.search(method="post" action="/posts/search")
+    input(placeholder="Search posts" name="query")
+  a(href="/logout") Logout
+  p.
+    results for '#{query}'
+  ul.posts
+    each result in results
+      li
+        a(href='/post/id/' + result._id) #{result.title}
+        span by
+        a(href="/posts/" + result.author) #{result.author}

@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  a(href="/posts") My posts
+  a(href="/post/new") New post
+  form.search(method="post" action="/posts/search")
+    input(placeholder="Search posts" name="query")
+  a(href="/logout") Logout
+  h1 Posts of #{authorName}
+
+  ul.posts
+    each post in posts
+      li
+        a(href='/post/id/' + post._id)= post.title

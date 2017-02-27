@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  a(href="/posts") My posts
+  a(href="/post/new") New post
+  form.search(method="post" action="/posts/search")
+    input(placeholder="Search posts" name="query")
+  a(href="/logout") Logout
+  if (message)
+    p #{message}
+  form(method="post")
+    input.title(value=title placeholder="Title" name="title")
+    textarea.text(value=text placeholder="Post text" name="text") #{text}
+    input(type="submit" value="save")
+  if (postId)
+    form(method="post" action="/post/delete/" + postId)
+      input(type="submit" value="delete")
