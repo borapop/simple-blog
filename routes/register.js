@@ -14,11 +14,7 @@ router.post('/', function(req, res, next) {
     if (err) {
       return next(err);
     }
-    res.render('editPost', {
-      title: '',
-      text: '',
-      message: "Write your first post"
-    });
+    res.redirect('/');
   });
 });
 
